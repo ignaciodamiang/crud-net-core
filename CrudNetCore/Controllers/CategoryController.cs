@@ -1,4 +1,5 @@
 ﻿using CrudNetCore.Data;
+using CrudNetCore.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrudNetCore.Controllers
@@ -14,8 +15,8 @@ namespace CrudNetCore.Controllers
 
         public IActionResult Index()
         {
-            var objCategoryList = _db.Categories.ToList();
-            return View();
+            IEnumerable<Category> objCategoryList = _db.Categories;
+            return View(objCategoryList);
         }
     }
 }
