@@ -38,6 +38,7 @@ namespace CrudNetCore.Controllers
             {
                 _db.Categories.Add(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Category created succesfully";
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -74,6 +75,7 @@ namespace CrudNetCore.Controllers
             {
                 _db.Categories.Update(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Category updated succesfully";
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -107,6 +109,7 @@ namespace CrudNetCore.Controllers
                 return NotFound();
             _db.Categories.Remove(obj);
             _db.SaveChanges();
+            TempData["success"] = "Category deleted succesfully";
             return RedirectToAction("Index");
         }
     }
